@@ -1,3 +1,4 @@
-.body-bg {
-    background: url("/img/home/bg.jpg");
+.login-bg {
+    background: url("/img/backend/login_bg.jpg") fixed no-repeat;
+    background-size: cover;
 }
