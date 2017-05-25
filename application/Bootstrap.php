@@ -1,6 +1,7 @@
 <?php
 class Bootstrap extends Yaf\Bootstrap_Abstract
 {
+    
     /**
      * @desc 初始化设置配置
      */

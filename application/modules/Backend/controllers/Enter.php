@@ -1,5 +1,6 @@
 <?php
-class EnterController extends Yaf\Controller_Abstract
+require_once dirname(__FILE__) . '/Base.php';
+class EnterController extends BaseController
 {
     public function loginAction()
     {
@@ -10,16 +11,19 @@ class EnterController extends Yaf\Controller_Abstract
     public function checkLoginAction()
     {
         try {
-            $userName = trim($this->getRequest()->getParam('username'));
-            $password = trim($this->getRequest()->getParam('password'));
-            $remember = intval($this->getRequest()->getParam('remember_me'));
+            $baseModel = new BaseModel();
+            die();
+            $userName = trim($this->getRequest()->getPost('username'));
+            $password = trim($this->getRequest()->getPost('password'));
+            //$remember = intval($this->getRequest()->getPost('remember_me'));
 
-            if ($userName == '')
-                throw new Exception('');
+            if ($userName == '' || $password == '')
+                throw new Exception('请填写用户名或密码!');
+
+
+            $this->jsonOk('Success!', ['redirectUrl' => '/backend/admin/index']);
         } catch (Exception $e) {
-
+            $this->jsonNok('登录失败!' . $e->getMessage());
         }
-
-
     }
 }
