@@ -11,8 +11,7 @@ class EnterController extends BaseController
     public function checkLoginAction()
     {
         try {
-            $baseModel = new BaseModel();
-            die();
+
             $userName = trim($this->getRequest()->getPost('username'));
             $password = trim($this->getRequest()->getPost('password'));
             //$remember = intval($this->getRequest()->getPost('remember_me'));
